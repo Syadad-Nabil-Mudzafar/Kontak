@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gus_adad - Digital Business Card</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Segoe UI"', 'Roboto', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        tgBlue: '#2AABEE',
+                        igBlue: '#0095F6',
+                        waGreen: '#25D366'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Modern Glass & Smooth Scroll */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .tg-glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tg-action-row {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tg-action-row:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(37, 211, 102, 0.4);
+        }
+
+        .tg-action-row:active {
+            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .tg-input-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.2s ease;
+        }
+
+        .tg-input-box:focus-within {
+            border-color: rgba(37, 211, 102, 0.6);
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+        }
+
+        .tg-header-fade {
+            background: linear-gradient(180deg, 
+                rgba(15,23,42,0) 0%, 
+                rgba(15,23,42,0.5) 50%, 
+                rgba(15,23,42,0.95) 85%, 
+                rgba(15,23,42,1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex items-center justify-center p-0 sm:p-4 relative selection:bg-igBlue selection:text-white">
+
+    <!-- Ambient Background Glows -->
+    <div class="fixed top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <!-- Main Container -->
+    <div class="w-full max-w-md mx-auto relative z-10 my-0 sm:my-4">
+        
+        <!-- Telegram Glass Profile Card -->
+        <div class="tg-glass-card rounded-none sm:rounded-[32px] overflow-hidden shadow-2xl relative">
+            
+            <!-- 1. FULL HEADER IMAGE (Telegram Style) -->
+            <div class="relative w-full h-80 sm:h-88 bg-slate-900 overflow-hidden">
+                <img src="img1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x800/0f172a/0095F6?text=gus_adad';" alt="gus_adad" class="w-full h-full object-cover object-center">
+                
+                <!-- Bottom Fade Overlay -->
+                <div class="absolute inset-0 tg-header-fade"></div>
+
+                <!-- Profile Info Overlay -->
+                <div class="absolute bottom-3 left-5 right-5 z-20">
+                    <div class="flex items-center gap-1.5">
+                        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white drop-shadow-md leading-none">
+                            gus_adad
+                        </h1>
+                        <!-- Official Instagram Blue Verified Badge (Aligned & Sharpened) -->
+                        <span class="inline-flex items-center shrink-0 translate-y-[1px]" title="Terverifikasi">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 drop-shadow-md" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C13.0883 2 14.129 2.45789 14.8697 3.26252C15.9381 2.99042 17.0862 3.25081 17.9142 4.07881C18.7422 4.90681 19.0026 6.05492 18.7305 7.12332C19.5351 7.86402 19.993 8.90472 19.993 9.993C19.993 11.0813 19.5351 12.122 18.7305 12.8627C19.0026 13.9311 18.7422 15.0792 17.9142 15.9072C17.0862 16.7352 15.9381 16.9956 14.8697 16.7235C14.129 17.5281 13.0883 17.986 12 17.986C10.9117 17.986 9.87102 17.5281 9.13032 16.7235C8.06192 16.9956 6.91381 16.7352 6.08581 15.9072C5.25781 15.0792 4.99742 13.9311 5.26952 12.8627C4.46489 12.122 4.007 11.0813 4.007 9.993C4.007 8.90472 4.46489 7.86402 5.26952 7.12332C4.99742 6.05492 5.25781 4.90681 6.08581 4.07881C6.91381 3.25081 8.06192 2.99042 9.13032 3.26252C9.87102 2.45789 10.9117 2 12 2Z" fill="#0095F6"/>
+                                <path d="M10.2 13.6L7.4 10.8L8.8 9.4L10.2 10.8L15.2 5.8L16.6 7.2L10.2 13.6Z" fill="white"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <p class="text-slate-300 text-xs font-medium mt-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-graduation-cap text-tgBlue text-xs"></i> Pelajar/Mahasiswa
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. CONTENT AREA -->
+            <div class="p-5 space-y-5">
+
+                <!-- Admin Contacts List -->
+                <div class="space-y-2.5">
+                    <h2 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-1">
+                        Pilih Admin WhatsApp
+                    </h2>
+
+                    <!-- Admin 1 -->
+                    <a href="https://wa.me/6285780085291?text=Halo%20Admin%201%2C%20saya%20ingin%20bertanya%20mengenai..." target="_blank" rel="noopener noreferrer" class="tg-action-row rounded-2xl p-3.5 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-waGreen/20 border border-waGreen/30 flex items-center justify-center text-waGreen shrink-0">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-white">Admin 1</div>
+                                <div class="text-xs text-slate-400 font-mono">0857-8008-5291</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold text-waGreen bg-waGreen/10 px-3 py-1.5 rounded-xl border border-waGreen/20 flex items-center gap-1.5">
+                            Chat <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <!-- Admin 2 -->
+                    <a href="https://wa.me/6285780085292?text=Halo%20Admin%202%2C%20saya%20ingin%20bertanya%20mengenai..." target="_blank" rel="noopener noreferrer" class="tg-action-row rounded-2xl p-3.5 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-waGreen/20 border border-waGreen/30 flex items-center justify-center text-waGreen shrink-0">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-white">Admin 2</div>
+                                <div class="text-xs text-slate-400 font-mono">0857-8008-5292</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold text-waGreen bg-waGreen/10 px-3 py-1.5 rounded-xl border border-waGreen/20 flex items-center gap-1.5">
+                            Chat <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <!-- Admin 3 -->
+                    <a href="https://wa.me/6285780085293?text=Halo%20Admin%203%2C%20saya%20ingin%20bertanya%20mengenai..." target="_blank" rel="noopener noreferrer" class="tg-action-row rounded-2xl p-3.5 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-waGreen/20 border border-waGreen/30 flex items-center justify-center text-waGreen shrink-0">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-white">Admin 3</div>
+                                <div class="text-xs text-slate-400 font-mono">0857-8008-5293</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold text-waGreen bg-waGreen/10 px-3 py-1.5 rounded-xl border border-waGreen/20 flex items-center gap-1.5">
+                            Chat <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div>
+                    <h2 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-1 mb-2.5">
+                        Media Sosial (@gus_adad)
+                    </h2>
+                    <div class="grid grid-cols-3 gap-2.5">
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/gus_adad" target="_blank" rel="noopener noreferrer" class="tg-action-row rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 text-center">
+                            <i class="fa-brands fa-instagram text-lg text-rose-400"></i>
+                            <span class="text-xs font-medium text-slate-200">Instagram</span>
+                        </a>
+
+                        <!-- TikTok -->
+                        <a href="https://tiktok.com/@gus_adad" target="_blank" rel="noopener noreferrer" class="tg-action-row rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 text-center">
+                            <i class="fa-brands fa-tiktok text-lg text-cyan-400"></i>
+                            <span class="text-xs font-medium text-slate-200">TikTok</span>
+                        </a>
+
+                        <!-- X (Twitter) -->
+                        <a href="https://x.com/gus_adad" target="_blank" rel="noopener noreferrer" class="tg-action-row rounded-xl p-2.5 flex flex-col items-center justify-center gap-1.5 text-center">
+                            <svg class="w-4 h-4 fill-current text-white mt-0.5" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            <span class="text-xs font-medium text-slate-200">X</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Branding -->
+                <div class="pt-2 border-t border-white/5 text-center">
+                    <p class="text-[11px] text-slate-500 font-medium tracking-wide">
+                        Powered by <span class="text-slate-300 font-semibold hover:text-tgBlue transition-colors cursor-default">Asia Project</span>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
